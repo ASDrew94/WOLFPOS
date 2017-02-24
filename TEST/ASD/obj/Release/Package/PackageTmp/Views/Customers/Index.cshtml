@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ASD.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Manage Customers</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_Firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_Lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_Cell)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_Home)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_Zip)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_Firstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_Lastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_Cell)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_Home)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_Zip)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Customer_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Customer_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Customer_ID })
+        </td>
+    </tr>
+}
+
+</table>

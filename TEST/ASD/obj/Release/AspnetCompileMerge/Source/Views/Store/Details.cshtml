@@ -1,0 +1,38 @@
+﻿@model ASD.Models.Product
+
+
+
+@{
+    ViewBag.Title = "Product - " + Model.Product_name;
+}
+
+
+
+<h2>@Model.Product_name</h2>
+
+@*
+
+<p>
+    <img alt="@Model.Product_name" src="@Model.Product_Description" />
+</p>
+
+*@
+
+<div id="album-details">
+    <p>
+        <em>Genre:</em>
+        @Model.Product_name
+    </p>
+    <p>
+        <em>Artist:</em>
+        @Model.Product_Description
+    </p>
+    <p>
+        <em>Price:</em>
+        @String.Format("{0:F}", Model.Product_Wholesaler_Cost)
+    </p>
+    <p class="btn btn-default">
+        @Html.ActionLink("Add to cart", "AddToCart",
+        "ShoppingCart", new { id = Model.ProductID }, "")
+    </p>
+</div>

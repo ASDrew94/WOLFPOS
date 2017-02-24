@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Welcome to Wolf POS</h1>
+    <p class="lead">Wolf POS is an online retail store management tool. You may keep track of your Inventory, Products, Customers and Orders here.</p>
+    <input class="btn btn-default" type="button" value="Sign in" onclick="@("window.location.href='" + @Url.Action("Login", "Account") + "'");" />
+</div>
+
+<div class="row">
+    <div class="col-md-4 ">
+        <h2>Customers</h2>
+        <p>
+            You can keep track of your customer database here. It is always better to keep this in order to reference you places the orders in your system
+        </p>
+        <input class="btn btn-default" type="button" value="Manage Customers" onclick="@("window.location.href='" + @Url.Action("Index", "Customers") + "'");" />
+    </div>
+    <div class="col-md-4">
+        <h2>Store</h2>
+        <p>This section allows you to browse and add products to your cart. After you're done, make sure to checkout!</p>
+        <input class="btn btn-default" type="button" value="Go to Store" onclick="@("window.location.href='" + @Url.Action("Index", "Store") + "'");" />
+    </div>
+    <div class="col-md-4">
+        <h2>Products</h2>
+        <p>All product management can be done here. You may add, edit or remove products at will.</p>
+        <input class="btn btn-default" type="button" value="Manage Products" onclick="@("window.location.href='" + @Url.Action("Index", "Products") + "'");" />
+    </div>
+</div>

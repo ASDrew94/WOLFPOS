@@ -1,0 +1,12 @@
+﻿@model IEnumerable<ASD.Models.Product>
+
+<ul id="categories">
+    @foreach (var product in Model)
+    {
+        <li>
+            @Html.ActionLink(product.Product_name,
+                "Browse", "Store",
+                new { product = product.Product_name }, null)
+    </li>
+    }
+</ul>

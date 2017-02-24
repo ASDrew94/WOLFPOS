@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ASD.Models.Product>
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length <= length){ 
+        @input
+    } else { 
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Manage Products</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_Wholesaler_Cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_Min_Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_Max_Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_Quantity)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product_name)
+            </td>
+            <td>
+                @Truncate(item.Product_Description, 25)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product_Wholesaler_Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product_Min_Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product_Max_Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product_Quantity)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
+            </td>
+        </tr>
+    }
+</table>

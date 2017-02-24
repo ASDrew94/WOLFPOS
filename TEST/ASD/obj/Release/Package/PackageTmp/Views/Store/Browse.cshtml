@@ -1,0 +1,21 @@
+﻿@model ASD.Models.Product
+
+@{
+    ViewBag.Title = "Browse Products";
+}
+
+<div class="genre">
+   <h3><em>@Model.Product_name </em> Products</h3>
+
+    <ul id="album-list">
+        @foreach (var item in Model.Product_name)
+        {
+            <li>
+                <a href="@Url.Action("Details", new { id = Model.ProductID })">
+                    <img alt="@Model.Product_name" src="@Model.Product_name" />
+                    <span>@Model.Product_name</span>
+                </a>
+            </li>
+        }
+    </ul>
+</div>
